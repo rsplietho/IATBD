@@ -29,6 +29,10 @@ Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware(['admin'])->name('admin');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

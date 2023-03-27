@@ -1,11 +1,16 @@
-<form method="POST" action="{{ route('login') }}">
+@extends('/components/main')
+
+@section('content')
+    <h1>Login</h1>
+
+    <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <!-- Email Address -->
+            <!-- Username -->
             <div>
                 <label for="username" :value="__('Username')" />
 
-                <input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
+                <input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" placeholder="Username" required autofocus />
             </div>
 
             <!-- Password -->
@@ -15,7 +20,8 @@
                 <input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                placeholder="Password"
+                                required>
             </div>
 
             <!-- Remember Me -->
@@ -38,5 +44,5 @@
                 </button>
             </div>
         </form>
-    </auth-card>
-</guest-layout>
+
+@endsection

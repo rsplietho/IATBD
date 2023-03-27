@@ -18,22 +18,38 @@ p {
     font-weight: 400;
 }
 
+.navigation {
+    height: 100%;
+    background-color: #EEE;
+}
 
 .navigation ul {
     list-style-type: none;
     margin: 0;
+    margin-right: 1rem;
     padding: 0;
     height: 100%;
-    position: fixed;
+    float: left;
     overflow: auto;
 }
 
 .navigation li a {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 12rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-left: 0;
+    margin-top: 0;
     background-color: #0267C1;
     color: #fff;
     text-decoration: none;
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+button {
+    padding: 0.75rem;
 }
