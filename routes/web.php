@@ -29,6 +29,14 @@ Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 
+    Route::get('/profile/my_items', function () {
+        return view('my_items');
+    })->name('profile.items');
+
+    Route::get('/profile/loaned_items', function () {
+        return view('loaned_items');
+    })->name('profile.loaned');
+
 Route::get('/admin', function () {
     return view('admin');
 })->middleware(['admin'])->name('admin');
