@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Page;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('home', function() {return view('index');});
+
+// Route::get('search', function() {return view('search');});
+
+// Route::get('profile', function() {return view('profile');});
+
+// $pages = Page::orderBy('order')->get();
+// // for($page = 1; $page <= count($pages); $page++)
+// foreach ($pages as $page) {
+//     Route::get($page->url, function($page){return view($page->name);});
+// };
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
