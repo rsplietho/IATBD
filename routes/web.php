@@ -27,15 +27,15 @@ Route::get('/search', function () {
 
 Route::get('/profile', function () {
     return view('profile');
-})->name('profile');
+})->middleware(['auth'])->name('profile');
 
     Route::get('/profile/my_items', function () {
         return view('my_items');
-    })->name('profile.items');
+    })->middleware(['auth'])->name('profile.items');
 
     Route::get('/profile/loaned_items', function () {
         return view('loaned_items');
-    })->name('profile.loaned');
+    })->middleware(['auth'])->name('profile.loaned');
 
 Route::get('/admin', function () {
     return view('admin');
