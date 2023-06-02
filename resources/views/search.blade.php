@@ -27,11 +27,11 @@
             @else
             Alle categoriën
         @endif</h3>
-        @if (App\Models\Product::where('name', 'LIKE', $query)->where('category', 'LIKE', $filterCategory)->first() == null)
+        @if (App\Models\Product::where('name', 'LIKE', '%'.$query.'%')->where('category', 'LIKE', $filterCategory)->first() == null)
             <p class="error">De ingevulde zoekopdracht levert geen resultaten op.</p>
         @else
             <article class="ProductCard-holder">
-                @foreach (App\Models\Product::where('name', 'LIKE', $query)->where('category', 'LIKE', $filterCategory)->get() as $product)
+                @foreach (App\Models\Product::where('name', 'LIKE', '%'.$query.'%')->where('category', 'LIKE', $filterCategory)->get() as $product)
                     @include('/components/productCard')
                 @endforeach
             </article>

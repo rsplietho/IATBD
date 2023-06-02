@@ -4,6 +4,14 @@
     <h1>Register new account</h1>
 
     <form method="POST" action="{{ route('register') }}">
+        @if($errors->any())
+                @foreach ($errors->all() as $error)
+                    <p class="error">{{ $error }}</p>
+                @endforeach
+            @endif
+            @if (session('error'))
+                <p class="error">{{ session('error') }}<p>
+            @endif
         @csrf
 
         <!-- Name -->
