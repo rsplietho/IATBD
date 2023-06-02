@@ -10,6 +10,11 @@
 </head>
 <body>
     @include('components/navigation')
-    @yield("content")
+    <section class="content">
+        @if (session('success'))
+                <p class="success">{{ session('success') }}</p>
+        @endif
+        @yield("content")
+    </section>
 </body>
 </html>

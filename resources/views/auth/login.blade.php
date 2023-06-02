@@ -5,7 +5,15 @@
 
     <form method="POST" action="{{ route('login') }}">
             @csrf
-
+            @if($errors->any())
+                @foreach ($errors->all() as $error)
+                    <p class="error">{{ $error }}</p>
+                @endforeach
+            @endif
+            @if (session('error'))
+                <p class="error">{{ session('error') }}<p>
+            @endif
+       
             <!-- Username -->
             <div>
                 <label for="username" :value="__('Username')" />

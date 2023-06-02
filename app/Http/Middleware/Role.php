@@ -16,13 +16,13 @@ class Role
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle($request, Closure $next, ... $roles) {
-        if (!Auth::check()) // I included this check because you have it, but it really should be part of your 'auth' middleware, most likely added as part of a route group.
+        if (!Auth::check())
             return redirect('login');
 
         $user = Auth::user();
 
         if(!$user->isAdmin()){
-            abort(403, 'Unauthorized');
+            abort(403, 'Niet geauthoriseerd');
         }
 
         return $next($request);

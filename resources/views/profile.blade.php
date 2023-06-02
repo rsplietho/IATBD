@@ -1,11 +1,11 @@
 @extends('/components/main')
 
 @section('content')
-    <h1>Profile</h1>
-    <a href="{{ url('profile/edit') }}">Edit Contents</a>
-    <p>Name: {{Auth::user()->name}}
-    <p>Username: {{Auth::user()->username}}
-    <p>Role: {{Auth::user()->role}}, {{App\Models\Role::find(Auth::user()->role)->value('name')}}</p>
-
-    <p>{{Auth::user()}}</p>
+    <h1>Profiel</h1>
+    @php($user = Auth::user())
+    <a class='button' href="/user/{{$user->username}}/edit"><span class="material-symbols-rounded">edit</span> Bewerken</a>
+    <p>Naam: {{$user->name}}
+    <p>Gebruikersnaam: {{$user->username}}
+    <p>Emailadres: {{$user->email}}</p>
+    <p>Rol: {{$user->role}}, {{App\Models\Role::find($user->role)->value('name')}}</p>
 @endsection
